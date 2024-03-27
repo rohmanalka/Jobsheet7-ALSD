@@ -1,9 +1,13 @@
 package minggu7;
 
 public class PencarianMhs21 {
-    Mahasiswa21 listMhs[] = new Mahasiswa21[5];
+    Mahasiswa21 listMhs[];
     int idx;
     
+    public PencarianMhs21(int jumlahMahasiswa) {
+        listMhs = new Mahasiswa21[jumlahMahasiswa];
+    }
+
     void tambah(Mahasiswa21 m) {
         if(idx < listMhs.length) {
             listMhs[idx] = m;
@@ -51,16 +55,15 @@ public class PencarianMhs21 {
     }
 
     public int findBinarySearch(int cari, int left, int right) {
-        int mid;
-        if(right >= left){
-            mid = (left + right)/2;
-            if(cari == listMhs[mid].nim) {
-                return(mid);
-            } else if(listMhs[mid].nim > cari) {
-                return findBinarySearch(cari, left, mid -1);
-            } else{
-                return findBinarySearch(cari, mid +1, right);
-            }
+    
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (listMhs[mid].nim == cari)
+                return mid;
+            if (listMhs[mid].nim < cari)
+                right = mid - 1;
+            else
+                left = mid + 1; 
         }
         return -1;
     }

@@ -6,12 +6,14 @@ public class MahasiswaMain21 {
         Scanner s = new Scanner(System.in);
         Scanner sl = new Scanner(System.in);
         
-        PencarianMhs21 data = new PencarianMhs21();
-        int jumMhs = 5; 
+        System.out.println("Masukkan jumlah mahasiswa: ");
+        int jumlahMahasiswa = s.nextInt();
+
+        PencarianMhs21 data = new PencarianMhs21(jumlahMahasiswa);
         
         System.out.println("-----------------------------------------------------");
         System.out.println("Masukkan data mahasiswa secara urut dari Nim terkecil");
-        for(int i=0; i < jumMhs; i++){
+        for(int i=0; i < jumlahMahasiswa; i++){
             System.out.println("-----------------------------------------------------");
             System.out.print("Nim\t: ");
             int nim = s.nextInt();
@@ -43,7 +45,7 @@ public class MahasiswaMain21 {
 
         System.out.println("______________________________________________");
         System.out.println("menggunakan binary search");
-        posisi = data.findBinarySearch(cari, 0, jumMhs - 1);
+        posisi = data.findBinarySearch(cari, 0, jumlahMahasiswa - 1);
         
         data.tampilPosisi(cari, posisi);
         data.tampilData(cari, posisi);
