@@ -40,5 +40,12 @@ public class MahasiswaMain21 {
             
         data.tampilPosisi(cari, posisi);
         data.tampilData(cari, posisi);
+
+        System.out.println("______________________________________________");
+        System.out.println("menggunakan binary search");
+        posisi = data.findBinarySearch(cari, 0, jumMhs - 1);
+        
+        data.tampilPosisi(cari, posisi);
+        data.tampilData(cari, posisi);
     }
 }
